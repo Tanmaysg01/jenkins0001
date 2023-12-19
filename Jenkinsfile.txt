@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+ 
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+ 
+        stage('Build and Push Docker Image') {
+            steps {
+                script {
+                    // Build and tag Docker image
+                    sh 'docker build -t your-image-name:latest .'
+                    
+                    // Push Docker image to registry
+                    sh 'docker push your-registry/your-image-name:latest'
+                }
+            }
+        }
+ 
+        // Add additional stages as needed
+    }
+ 
+    post {
+        always {
+            // Clean up or perform other actions after the pipeline
+        }
+    }
+}
