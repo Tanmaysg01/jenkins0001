@@ -1,15 +1,4 @@
-# Use an official base image
-FROM your-base-image:tag
+
+FROM python:3.8
+COPY ./hello.py
  
-# Set the working directory
-WORKDIR /app
- 
-# Copy source code to the container
-COPY . .
- 
-# Install dependencies and build your application
-RUN your-build-commands
- 
-# Specify the command to run on container start
-CMD ["your-app-command"]
-has context menu
